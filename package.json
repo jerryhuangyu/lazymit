@@ -1,0 +1,40 @@
+{
+  "name": "lazymit",
+  "description": "Lazymit is a CLI tool that leverages the power of AI to generate Gitmoji-based commit messages",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "homepage": "",
+  "repository": {
+    "url": ""
+  },
+  "scripts": {
+    "build": "tsup",
+    "start": "node --no-warnings=ExperimentalWarning ./dist/index.mjs",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "ai",
+    "git",
+    "commit"
+  ],
+  "author": "poyu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "import-jsx": "^5.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@inkjs/ui": "^2.0.0",
+    "@types/node": "^22.8.7",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "ink": "^5.0.1",
+    "react": "^18.3.1",
+    "zustand": "^5.0.1"
+  }
+}
