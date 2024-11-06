@@ -1,7 +1,7 @@
 {
   "name": "lazymit",
   "description": "Lazymit is a CLI tool that leverages the power of AI to generate Gitmoji-based commit messages",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

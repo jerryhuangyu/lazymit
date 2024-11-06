@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { DESCRIPTION, VERSION } from "@/constants";
 import Lazymit from "@/ui/Lazymit";
 import { Command } from "commander";
