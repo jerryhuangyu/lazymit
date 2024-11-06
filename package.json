@@ -14,6 +14,7 @@
     "start": "node --no-warnings=ExperimentalWarning ./dist/index.mjs",
     "dev": "tsup --watch"
   },
+  "bin": "./dist/index.mjs",
   "keywords": [
     "ai",
     "git",
