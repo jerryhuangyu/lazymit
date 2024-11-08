@@ -1,9 +1,9 @@
 import { DESCRIPTION, VERSION } from "@/constants";
 import Lazymit from "@/ui/Lazymit";
+import Remove from "@/ui/Remove";
+import Settings from "@/ui/Settings";
 import { Command, Option } from "commander";
 import { render } from "ink";
-import Remove from "./ui/Remove";
-import Settings from "./ui/Settings";
 
 const lazymit = new Command();
 

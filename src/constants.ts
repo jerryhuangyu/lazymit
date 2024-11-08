@@ -1,8 +1,9 @@
-import { COMMIT_TYPE, SCOPE } from "./ui/stores/commit";
+import packageJson from "@/../../package.json";
+import { COMMIT_TYPE, SCOPE } from "@/ui/stores/commit";
 
 // * METADATA
-export const DESCRIPTION = "Lazymit is a CLI tool that leverages the power of AI to generate Gitmoji-based commit messages";
-export const VERSION = "0.0.1";
+export const DESCRIPTION = packageJson.description;
+export const VERSION = `V${packageJson.version}`;
 
 // * OPTIONS
 export const COMMIT_TYPE_OPTIONS = new Map([
