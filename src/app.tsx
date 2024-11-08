@@ -1,7 +1,3 @@
-#! /usr/bin/env node
-
-process.removeAllListeners("warning");
-
 import { DESCRIPTION, VERSION } from "@/constants";
 import Lazymit from "@/ui/Lazymit";
 import { Command, Option } from "commander";

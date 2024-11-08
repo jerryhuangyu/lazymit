@@ -68,7 +68,7 @@ const Preview = () => {
 			)}
 			{/* Footer */}
 			<Box width="100%" flexGrow={1} flexDirection="row" justifyContent="center" alignItems="flex-end">
-				{commitMessage && <Text color="grey">(Enter to submit commit)</Text>}
+				{commitMessage && <Text color="grey">(Enter to submit commit, or Ctrl+c to exist.)</Text>}
 			</Box>
 		</Box>
 	);

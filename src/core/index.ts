@@ -17,7 +17,7 @@ export async function genCommit({ commitType, commitScope }: { commitType: strin
 	if (!apiKey) throw new Error("No API key detected. Try using with -i or --init to configure settings.");
 
 	let aiModel = undefined;
-	// todo: handle un-support model error
+	// TODO: handle un-support model error
 	aiModel = new GeminiLLM("uuid-5678", model, apiKey, `https://generativelanguage.googleapis.com/v1beta/models/${model}:`);
 
 	try {
@@ -48,6 +48,6 @@ function formatCommitMessage({ response, type, scope }: { response: string; type
 }
 
 export function gitCommit(message: string) {
-	// todo: check have staged file
+	// TODO: check have staged file
 	git.execGitCommit(message);
 }
