@@ -1,8 +1,10 @@
 import { COMMIT_TYPE_OPTIONS } from "@/constants";
+import { Config } from "@/core/config";
 import { Git } from "@/core/git";
+import { LLM_MODEL } from "@/core/llm";
 import { GeminiLLM } from "@/core/llm/GeminiLLM";
+import { OpenAILLM } from "@/core/llm/OpenAILLM";
 import { Prompt } from "@/core/prompt";
-import { Config } from "./config";
 
 const git = new Git();
 const prompt = new Prompt();
@@ -13,12 +15,18 @@ export async function genCommit({ commitType, commitScope }: { commitType: strin
 	const promptText = prompt.getPrompt(diff, { commitType });
 
 	const { model, apiKey } = config.getConfig();
-	if (!model) throw new Error("No AI model detected. Try using with -i or --init to configure settings");
+	if (!model) throw new Error("No AI model detected. Try using with -i or --init to configure settings.");
 	if (!apiKey) throw new Error("No API key detected. Try using with -i or --init to configure settings.");
 
 	let aiModel = undefined;
-	// TODO: handle un-support model error
-	aiModel = new GeminiLLM("uuid-5678", model, apiKey, `https://generativelanguage.googleapis.com/v1beta/models/${model}:`);
+	if (model === LLM_MODEL.GEMINI_FLASH || model === LLM_MODEL.GEMINI_PRO) {
+		aiModel = new GeminiLLM("test", model, apiKey, "");
+	}
+	if (model === LLM_MODEL.GPT_4O_LATEST || model === LLM_MODEL.GPT_4O_MINI) {
+		aiModel = new OpenAILLM("test", model, apiKey, "");
+	}
+
+	if (!aiModel) throw new Error(`The AI model: ${model} not supported.`);
 
 	try {
 		const response = await aiModel.chat(promptText);

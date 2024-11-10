@@ -1,11 +1,12 @@
 import Conf from "conf";
+import type { LLM_MODEL } from "./llm";
 
 const schema = {
 	api_key: { type: "string" },
 	model: { type: "string" },
 };
 
-type Schema = { model: string; api_key: string };
+type Schema = { model: LLM_MODEL; api_key: string };
 
 export class Config {
 	private config: Conf<Schema>;

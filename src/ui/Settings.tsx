@@ -1,8 +1,9 @@
 import { Config } from "@/core/config";
+import { LLM_MODEL } from "@/core/llm";
+import StepHeader from "@/ui/components/StepHeader";
 import { Badge, Select, TextInput } from "@inkjs/ui";
 import { Box, Text } from "ink";
 import { useState } from "react";
-import StepHeader from "./components/StepHeader";
 
 enum SETTINGS {
 	MODEL = "model",
@@ -89,8 +90,10 @@ const ModelSection = ({ onChange }: { onChange: (model: string) => void }) => (
 			<Select
 				onChange={onChange}
 				options={[
-					{ label: "Gemini Flash", value: "gemini-1.5-flash-latest" },
-					{ label: "Gemini Pro", value: "gemini-1.5-pro-latest" },
+					{ label: "Gemini Flash", value: LLM_MODEL.GEMINI_FLASH },
+					{ label: "Gemini Pro", value: LLM_MODEL.GEMINI_PRO },
+					{ label: "Gpt 4o", value: LLM_MODEL.GPT_4O_LATEST },
+					{ label: "Gpt 4o mini", value: LLM_MODEL.GPT_4O_MINI },
 				]}
 			/>
 		</Box>
