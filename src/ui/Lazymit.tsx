@@ -31,17 +31,14 @@ const Lazymit = () => {
 	const step = useCommitSelector.use.step();
 	// var
 	const totalSteps = Object.keys(STEP).length;
-	const currentStep = LAZYMIT_STEPS.find((s) => s.key === step) ?? LAZYMIT_STEPS[0];
+	const currentStep = LAZYMIT_STEPS.find((s) => s.key === step);
 
 	return (
 		<Box width="100%" minHeight={20} borderStyle="single" paddingX={2} paddingY={1} flexDirection="column">
 			{/* header */}
-			<StepHeader step={currentStep.step} totalSteps={totalSteps} title={currentStep.title} />
+			{currentStep && <StepHeader step={currentStep.step} totalSteps={totalSteps} title={currentStep.title} />}
 			{/* body */}
-			{LAZYMIT_STEPS.map((step) => {
-				if (step.key === currentStep.key) return step.sectionComponent;
-				return null;
-			})}
+			{currentStep?.sectionComponent}
 		</Box>
 	);
 };
