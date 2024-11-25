@@ -2,7 +2,7 @@
 
 > Commit CLI tool, Leverages the power of AI to generate Gitmoji-based commit messages
 
-# install
+# Installation
 
 ```sh
 npm install -g lazymit
