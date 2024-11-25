@@ -2,27 +2,30 @@ import Conf from "conf";
 import type { LLM_MODEL } from "./llm";
 
 const schema = {
-	api_key: { type: "string" },
+	apiKey: { type: "string" },
 	model: { type: "string" },
 };
 
-type Schema = { model: LLM_MODEL; api_key: string };
+export interface IConfig {
+	model: LLM_MODEL;
+	apiKey: string;
+}
 
 export class Config {
-	private config: Conf<Schema>;
+	private config: Conf<IConfig>;
 
 	constructor() {
-		this.config = new Conf<Schema>({ projectName: "lazymit", schema });
+		this.config = new Conf<IConfig>({ projectName: "lazymit", schema });
 	}
 
 	updateApiKey(apiKey: string) {
-		this.config.set("api_key", apiKey);
+		this.config.set("apiKey", apiKey);
 	}
 	private removeApiKey() {
-		this.config.delete("api_key");
+		this.config.delete("apiKey");
 	}
 	private getApiKey() {
-		return this.config.get("api_key");
+		return this.config.get("apiKey");
 	}
 
 	updateModel(model: string) {
