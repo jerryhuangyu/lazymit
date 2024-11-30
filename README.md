@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/lazymit.svg)](https://www.npmjs.com/package/lazymit)
 [![License](https://img.shields.io/npm/l/lazymit.svg)](https://www.npmjs.com/package/lazymit)
 
-![Lazymit](./docs/lazymit.png)
+![Lazymit](https://raw.githubusercontent.com/jerryhuangyu/lazymit/refs/heads/main/docs/lazymit.png)
 
 ## Features
 
@@ -21,7 +21,7 @@ npm install -g lazymit
 
 ## Usage
 
-![Lazymit Usage](./docs/lazymit.webp)
+![Lazymit Usage](https://raw.githubusercontent.com/jerryhuangyu/lazymit/refs/heads/main/docs/lazymit.webp)
 
 1. Set up your API key and preferred AI model.
 
