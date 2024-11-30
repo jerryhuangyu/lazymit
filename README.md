@@ -5,6 +5,8 @@
 [![npm version](https://img.shields.io/npm/v/lazymit.svg)](https://www.npmjs.com/package/lazymit)
 [![License](https://img.shields.io/npm/l/lazymit.svg)](https://www.npmjs.com/package/lazymit)
 
+![Lazymit](./docs/lazymit.png)
+
 ## Features
 
 * **AI-Powered:** Automatically generates commit messages using AI.
@@ -18,6 +20,8 @@ npm install -g lazymit
 ```
 
 ## Usage
+
+![Lazymit Usage](./docs/lazymit.webp)
 
 1. Set up your API key and preferred AI model.
 
