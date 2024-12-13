@@ -1,5 +1,5 @@
 import { COMMIT_SCOPE_OPTIONS, COMMIT_TYPE_OPTIONS } from "@/constants";
-import { genCommit, gitCommit } from "@/core";
+import { commitChanges, generateCommitMessage } from "@/core";
 import { useCommitSelector } from "@/ui/stores/commit";
 import { Alert, Spinner, TextInput } from "@inkjs/ui";
 import { Box, Text } from "ink";
@@ -19,7 +19,7 @@ const Preview = () => {
 	useEffect(() => {
 		async function tryGenCommitMessage() {
 			try {
-				const commitMsg = await genCommit({
+				const commitMsg = await generateCommitMessage({
 					commitType: type?.label ?? "",
 					commitScope: scope?.value,
 				});
@@ -39,7 +39,7 @@ const Preview = () => {
 
 	const handleSubmit = (commitMessage: string) => {
 		if (!error) {
-			gitCommit(commitMessage);
+			commitChanges(commitMessage);
 		}
 		process.exit(0);
 	};
