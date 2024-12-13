@@ -15,7 +15,9 @@
     "dev": "tsup --watch",
     "knip": "knip"
   },
-  "bin": "./dist/index.js",
+  "bin": {
+    "lazymit": "dist/index.js"
+  },
   "keywords": [
     "ai",
     "git",
