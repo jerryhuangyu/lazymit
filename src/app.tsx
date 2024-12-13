@@ -4,6 +4,7 @@ import Remove from "@/ui/Remove";
 import Settings from "@/ui/Settings";
 import { Command, Option } from "commander";
 import { render } from "ink";
+import { checkHaveStagedFiles } from "./command/commit";
 
 const lazymit = new Command();
 
@@ -22,5 +23,6 @@ if (options.init) {
 } else if (options.remove) {
 	render(<Remove />);
 } else {
+	checkHaveStagedFiles();
 	render(<Lazymit />);
 }

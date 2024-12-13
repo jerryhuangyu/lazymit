@@ -43,3 +43,12 @@ export function commitChanges(message: string) {
 	const git = new Git();
 	git.execGitCommit(message);
 }
+
+export function checkHaveStagedFiles() {
+	const git = new Git();
+	const diff = git.getDiff();
+	if (diff.length === 0) {
+		console.error("No staged files detected. Please use 'git add <files...>' to stage files before generating a commit message.");
+		process.exit(0);
+	}
+}
