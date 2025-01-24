@@ -7,17 +7,25 @@ export async function generateCommitMessage({ commitType, commitScope }: { commi
 	const config = new Config();
 
 	try {
+		const aiConfig = config.getConfig();
+        if (!aiConfig.apiKey || !aiConfig.model) {
+            throw new Error("API key or model not configured. Please run 'lazymit --init' first.");
+        }
+
 		const diff = git.getDiff();
 		const promptText = prompt.getPrompt(diff, { commitType });
-		const aiConfig = config.getConfig();
 		const aiModel = createLLM(aiConfig);
 
 		const response = await aiModel.chat(promptText);
 		const typeWithIcon = resolveCommitTypeWithIcon(response, commitType);
 		return formatCommitMessage({ response, type: typeWithIcon, scope: commitScope });
 	} catch (error) {
-		console.error("Error generating commit message:", error);
-		throw error;
+        if (error instanceof Error) {
+            console.error(`Error generating commit message: ${error.message}`);
+        } else {
+            console.error("An unexpected error occurred while generating commit message");
+        }
+        throw error;
 	}
 }
 
