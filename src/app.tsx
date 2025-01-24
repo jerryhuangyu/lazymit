@@ -1,4 +1,4 @@
-import { DESCRIPTION, VERSION } from "@/constants";
+import { DESCRIPTION, VERSION } from "@/constants/meta";
 import Lazymit from "@/ui/Lazymit";
 import Remove from "@/ui/Remove";
 import Settings from "@/ui/Settings";
